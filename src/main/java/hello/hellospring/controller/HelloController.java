@@ -3,6 +3,7 @@ package hello.hellospring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
@@ -14,5 +15,12 @@ public class HelloController {
         // 문자를 반환하면 뷰 리졸버(viewResolver)가 화면을 찾아서 처리
         // resources:templates/ + {viewName} + .html
         // spring-boot-devtools 라이브러리 추가하면 재시작 없이 바꾼 html바로 볼 수 있음
+    }
+
+    @GetMapping("hello-mvc")
+    public String helloMvc(@RequestParam(value="name", required=false) String name, Model model){
+        model.addAttribute("name", name);
+        // viewResolver: 화면을 찾아서 컨트롤러와 연결
+        return "hello-template";
     }
 }
