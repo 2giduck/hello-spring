@@ -16,6 +16,13 @@ public class MemberController {
      * 기본으로 싱글톤으로 등록함. 같은 스프링 빈이면 모두 같은 인스턴스
      */
 
+    /**
+     *
+     * 자바 코드로 빈 등록하기
+     * 생성자 주입을 권장함
+     *
+     */
+
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
